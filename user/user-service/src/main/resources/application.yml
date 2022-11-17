@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: user
+  datasource:
+    password: 123456
+    url: jdbc:postgresql://localhost:5432/cs_user
+    username: postgres
+server:
+  port: 8181
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+    enabled: true
