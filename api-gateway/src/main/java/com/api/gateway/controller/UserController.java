@@ -51,4 +51,8 @@ public class UserController {
     void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
         userOperation.refreshToken(request, response);
     }
+    @GetMapping("/getPort")
+    int getPort(){
+        return userOperation.getPort();
+    }
 }

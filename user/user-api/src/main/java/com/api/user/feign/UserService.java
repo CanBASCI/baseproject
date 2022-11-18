@@ -13,6 +13,7 @@ import java.util.List;
         name = "user-service",
         url = "http://localhost:8181"
 )
+//url = "$ {user.api.url}"
 public interface UserService {
     @PostMapping("api/user/save")
     UserDto saveUser(@RequestBody CreateUserDto createUserDto) throws Exception;
@@ -28,4 +29,7 @@ public interface UserService {
 
     @GetMapping("api/user/getUsers")
     List<UserDto> getUsers();
+
+    @GetMapping("api/user/port")
+    int getPort();
 }

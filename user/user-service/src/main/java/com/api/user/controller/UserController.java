@@ -8,6 +8,8 @@ import com.api.user.feign.UserService;
 import com.api.user.operation.UserOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -15,7 +17,6 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 public class UserController implements UserService {
-
     @Autowired
     UserOperation userOperation;
 
@@ -42,5 +43,10 @@ public class UserController implements UserService {
     @Override
     public List<UserDto> getUsers() {
         return userOperation.getUsers();
+    }
+
+    @Override
+    public int getPort() {
+        return userOperation.getPort();
     }
 }

@@ -9,6 +9,7 @@ import com.api.user.dto.CreateUserDto;
 import com.api.user.dto.RoleDto;
 import com.api.user.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -16,6 +17,8 @@ import java.util.List;
 
 @Component
 public class UserOperation {
+    @Value("${server.port}")
+    private int port;
     @Autowired
     UserRepository userRepository;
     @Autowired
@@ -89,5 +92,9 @@ public class UserOperation {
         RoleEntity roleEntity = roleRepository.findByName(roleName);
         userEntity.getRoleEntities().add(roleEntity);
         userRepository.save(userEntity);
+    }
+
+    public int getPort(){
+        return port;
     }
 }

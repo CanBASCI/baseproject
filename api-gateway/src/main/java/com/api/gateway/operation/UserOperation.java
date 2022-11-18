@@ -10,6 +10,9 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -28,18 +31,25 @@ import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 import static org.springframework.http.HttpStatus.FORBIDDEN;
 
 @Service
+@Slf4j
 public class UserOperation implements UserService, UserDetailsService {
+
+    private final static Logger logger = LoggerFactory.getLogger(UserOperation.class);
     @Autowired
     PasswordEncoder passwordEncoder;
     @Autowired
     UserService userService;
     public UserDto getUser(String userName){
+        logger.info("UserOperation -> getUser => userName: {} ", userName);
         return userService.getUser(userName);
     }
     public List<UserDto> getUsers(){
+        logger.info("UserOperation -> getUser");
         return userService.getUsers();
     }
     public UserDto saveUser(CreateUserDto createUserDto) throws Exception {
+        logger.info("UserOperation -> saveUser => name: {} userName: {} password: {} ",
+                createUserDto.getName(), createUserDto.getUserName(), createUserDto.getPassword());
         createUserDto.setPassword(passwordEncoder.encode(createUserDto.getPassword()));
         return userService.saveUser(createUserDto);
     }
@@ -94,5 +104,10 @@ public class UserOperation implements UserService, UserDetailsService {
         } else{
             throw new RuntimeException("Refresh token is missing.");
         }
+    }
+
+    public int getPort(){
+        logger.info("UserOperation -> getPort");
+        return userService.getPort();
     }
 }
