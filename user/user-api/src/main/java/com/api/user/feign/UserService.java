@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @FeignClient(
-        name = "user-service",
-        url = "http://localhost:8181"
+        name = "user"
 )
-//url = "$ {user.api.url}"
 public interface UserService {
     @PostMapping("api/user/save")
     UserDto saveUser(@RequestBody CreateUserDto createUserDto) throws Exception;
@@ -24,8 +22,8 @@ public interface UserService {
     @RequestMapping(method = RequestMethod.POST, value = "api/role/addRoleToUser/{userName}/{roleName}")
     void addRoleToUser(@PathVariable(name = "userName") String userName, @PathVariable(name = "roleName") String roleName);
 
-    @GetMapping("api/user/getUser")
-    UserDto getUser(@RequestParam("userName") String userName);
+    @GetMapping("api/user/getUser/{userName}")
+    UserDto getUser(@PathVariable(value = "userName") String userName);
 
     @GetMapping("api/user/getUsers")
     List<UserDto> getUsers();
