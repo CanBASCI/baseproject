@@ -5,6 +5,12 @@
     <file url="file://$PROJECT_DIR$/api-gateway/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iyzico/iyzico-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iyzico/iyzico-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iyzico/iyzico-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iyzico/iyzico-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iyzico/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iyzico/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/user/src/main/java" charset="UTF-8" />

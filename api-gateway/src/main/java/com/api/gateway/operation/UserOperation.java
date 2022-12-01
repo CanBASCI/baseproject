@@ -33,7 +33,6 @@ import static org.springframework.http.HttpStatus.FORBIDDEN;
 @Service
 @Slf4j
 public class UserOperation implements UserService, UserDetailsService {
-
     private final static Logger logger = LoggerFactory.getLogger(UserOperation.class);
     @Autowired
     PasswordEncoder passwordEncoder;
