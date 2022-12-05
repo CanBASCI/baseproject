@@ -10,6 +10,8 @@ spring:
         - id: user
           uri: lb://user
         - id: iyzico
+          uri: lb://customer
+        - id: iyzico
           uri: lb://iyzico
       discovery:
         locator:

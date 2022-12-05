@@ -18,10 +18,12 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
         </processorPath>
-        <module name="api-gateway" />
-        <module name="user-service" />
+        <module name="customer-api" />
         <module name="user-api" />
         <module name="iyzico-service" />
+        <module name="customer-service" />
+        <module name="api-gateway" />
+        <module name="user-service" />
         <module name="eureka-server" />
         <module name="iyzico-api" />
       </profile>
