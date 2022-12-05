@@ -1,7 +1,11 @@
 package com.api.gateway.controller;
 
+import com.api.customer.dto.CustomerCreateDto;
 import com.api.customer.dto.CustomerDto;
+import com.api.gateway.dto.customer.CustomerCreate;
 import com.api.gateway.operation.CustomerOperation;
+import com.api.user.dto.CreateRoleDto;
+import com.api.user.dto.RoleDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,5 +22,10 @@ public class CustomerController {
     @GetMapping("/getAllCustomers")
     ResponseEntity<List<CustomerDto>> getAllCustomers(){
         return ResponseEntity.ok().body(customerOperation.getAllCustomers());
+    }
+
+    @PostMapping("/save")
+    ResponseEntity<CustomerDto> save(@RequestBody CustomerCreate customerCreateDto){
+        return ResponseEntity.ok().body(customerOperation.save(customerCreateDto));
     }
 }

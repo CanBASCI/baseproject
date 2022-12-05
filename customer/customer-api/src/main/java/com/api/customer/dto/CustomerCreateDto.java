@@ -11,17 +11,10 @@ import java.util.UUID;
 @Setter
 @Data
 @Builder
-public class CustomerDto {
-    private UUID id;
-    private String userName;
+public class CustomerCreateDto {
     private String firstName;
     private String middleName;
     private String lastName;
     private Date birthDate;
-    private Boolean isActive;
-
-    private Date createdAt;
-    private Date updatedAt;
-    private String createdBy;
-    private String updatedBy;
+    private String userName;
 }
