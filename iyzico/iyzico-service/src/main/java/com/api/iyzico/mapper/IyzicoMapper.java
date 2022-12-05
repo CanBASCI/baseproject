@@ -8,4 +8,6 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel="spring")
 public interface IyzicoMapper {
      InstallmentRequestDto toInstallmentDto(RetrieveInstallmentInfoRequest installmentRequestDto);
+
+     RetrieveInstallmentInfoRequest toRetrieveInstallmentDto(InstallmentRequestDto installmentRequestDto);
 }

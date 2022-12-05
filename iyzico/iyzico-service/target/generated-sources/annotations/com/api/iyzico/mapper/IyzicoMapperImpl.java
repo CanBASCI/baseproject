@@ -2,12 +2,13 @@ package com.api.iyzico.mapper;
 
 import com.api.iyzico.dto.InstallmentRequestDto;
 import com.api.iyzico.dto.RetrieveInstallmentInfoRequest;
+import java.math.BigDecimal;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-12-01T14:43:42+0300",
+    date = "2022-12-01T14:51:19+0300",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 19.0.1 (Oracle Corporation)"
 )
 @Component
@@ -29,5 +30,23 @@ public class IyzicoMapperImpl implements IyzicoMapper {
         }
 
         return installmentRequestDto1.build();
+    }
+
+    @Override
+    public RetrieveInstallmentInfoRequest toRetrieveInstallmentDto(InstallmentRequestDto installmentRequestDto) {
+        if ( installmentRequestDto == null ) {
+            return null;
+        }
+
+        RetrieveInstallmentInfoRequest.RetrieveInstallmentInfoRequestBuilder<?, ?> retrieveInstallmentInfoRequest = RetrieveInstallmentInfoRequest.builder();
+
+        retrieveInstallmentInfoRequest.locale( installmentRequestDto.getLocale() );
+        retrieveInstallmentInfoRequest.conversationId( installmentRequestDto.getConversationId() );
+        retrieveInstallmentInfoRequest.binNumber( installmentRequestDto.getBinNumber() );
+        if ( installmentRequestDto.getPrice() != null ) {
+            retrieveInstallmentInfoRequest.price( new BigDecimal( installmentRequestDto.getPrice() ) );
+        }
+
+        return retrieveInstallmentInfoRequest.build();
     }
 }
