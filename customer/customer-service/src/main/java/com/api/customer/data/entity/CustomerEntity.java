@@ -1,5 +1,7 @@
 package com.api.customer.data.entity;
 
+import com.api.customer.data.entity.address.AddressEntity;
+import com.api.customer.data.entity.address.CityEntity;
 import com.api.customer.data.entity.util.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,6 +10,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -37,6 +41,9 @@ public class CustomerEntity extends BaseEntity {
     @Column(name="BIRTH_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date birthDate;
+
+    @OneToMany(mappedBy="customer", cascade = CascadeType.ALL)
+    private Set<AddressEntity> addresses = new HashSet<>();
 
     @Column(name = "IS_ACTIVE", nullable = false)
     private Boolean isActive;

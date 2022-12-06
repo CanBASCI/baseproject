@@ -13,15 +13,10 @@ import java.util.UUID;
 @Data
 @Builder
 public class CountryDto {
-
     private UUID id;
-
     private String name;
-
     private String twoCharCountryCode ;
-
     private String threeCharCountryCode ;
-
     @JsonIgnore
     private List<CityDto> cities;
 }

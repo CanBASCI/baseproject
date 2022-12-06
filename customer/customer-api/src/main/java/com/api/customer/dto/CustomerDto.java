@@ -1,6 +1,8 @@
 package com.api.customer.dto;
 
+import com.api.customer.dto.util.BaseDto;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
 import java.util.UUID;
@@ -9,9 +11,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
-@Data
-@Builder
-public class CustomerDto {
+@SuperBuilder
+public class CustomerDto extends BaseDto {
     private UUID id;
     private String userName;
     private String firstName;
@@ -19,9 +20,4 @@ public class CustomerDto {
     private String lastName;
     private Date birthDate;
     private Boolean isActive;
-
-    private Date createdAt;
-    private Date updatedAt;
-    private String createdBy;
-    private String updatedBy;
 }
