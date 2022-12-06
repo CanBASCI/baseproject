@@ -25,14 +25,14 @@ public class AddressEntity extends BaseEntity {
     private String address;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "DISTRICT _ID", referencedColumnName = "id")
+    @JoinColumn(name = "DISTRICT_ID", referencedColumnName = "id")
     private DistrictEntity district;
 
     @Column(name="POSTAL_CODE")
     private String postalCode;
 
-    @Column(name="PHONE")
-    private String birthDate;
+    @Column(name="PHONE_NUMBER")
+    private String phoneNumber;
 
     @Column(name = "IS_ACTIVE", nullable = false)
     private Boolean isActive;

@@ -1,5 +1,6 @@
 package com.api.customer.dto.address;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.List;
@@ -19,7 +20,8 @@ public class CountryDto {
 
     private String twoCharCountryCode ;
 
-    private String ThreeCharCountryCode ;
+    private String threeCharCountryCode ;
 
+    @JsonIgnore
     private List<CityDto> cities;
 }

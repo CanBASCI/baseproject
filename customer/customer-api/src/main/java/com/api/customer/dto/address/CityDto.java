@@ -1,5 +1,6 @@
 package com.api.customer.dto.address;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.List;
@@ -31,5 +32,6 @@ public class CityDto {
 
     private CountryDto country;
 
+    @JsonIgnore
     private List<DistrictDto> districts;
 }

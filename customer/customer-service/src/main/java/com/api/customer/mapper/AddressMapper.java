@@ -9,6 +9,6 @@ import org.mapstruct.Mapping;
 public interface AddressMapper {
 
     @Mapping(target = "district.city.districts", ignore = true)
-    @Mapping(target = "district.city.country", ignore = true)
+    @Mapping(target = "district.city.country.cities", ignore = true)
     AddressDto toDto(AddressEntity address);
 }
