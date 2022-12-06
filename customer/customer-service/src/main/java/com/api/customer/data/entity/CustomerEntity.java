@@ -1,6 +1,6 @@
 package com.api.customer.data.entity;
 
-import com.api.customer.data.BaseEntity;
+import com.api.customer.data.entity.util.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

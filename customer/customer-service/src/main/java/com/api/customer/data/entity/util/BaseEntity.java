@@ -1,4 +1,4 @@
-package com.api.customer.data;
+package com.api.customer.data.entity.util;
 
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
