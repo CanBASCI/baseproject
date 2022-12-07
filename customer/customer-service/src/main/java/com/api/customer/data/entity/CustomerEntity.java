@@ -2,6 +2,7 @@ package com.api.customer.data.entity;
 
 import com.api.customer.data.entity.address.AddressEntity;
 import com.api.customer.data.entity.util.BaseEntity;
+import com.api.customer.enums.GenderType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -42,7 +43,7 @@ public class CustomerEntity extends BaseEntity {
     private Date birthDate;
 
     @Column(name="GENDER_TYPE")
-    private GenerationType generationType;
+    private GenderType genderType;
 
     @OneToMany(mappedBy="customer", cascade = CascadeType.ALL)
     private Set<AddressEntity> addresses = new HashSet<>();
