@@ -1,10 +1,12 @@
 package com.api.customer.dto;
 
+import com.api.customer.dto.address.AddressDto;
 import com.api.customer.dto.util.BaseDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -20,4 +22,5 @@ public class CustomerDto extends BaseDto {
     private String lastName;
     private Date birthDate;
     private Boolean isActive;
+    private List<AddressDto> addresses;
 }

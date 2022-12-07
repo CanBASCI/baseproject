@@ -19,6 +19,9 @@ public interface CustomerService {
     @GetMapping("api/customer/getAllCustomers")
     List<CustomerDto> getAllCustomers();
 
+    @GetMapping("api/address/getCustomer/{id}")
+    CustomerDto getCustomer(@PathVariable(value = "id") UUID id) throws Exception;
+
     @PostMapping("api/customer/save")
     CustomerDto save(@RequestBody CustomerCreateDto customerCreateDto);
 

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class CustomerOperation {
@@ -19,6 +20,11 @@ public class CustomerOperation {
 
     public List<CustomerDto> getAllCustomers() {
         return customerMapper.toDtos(customerRepository.findAll());
+    }
+
+    public CustomerDto getCustomerById(UUID uuid) throws Exception{
+        CustomerEntity customerEntity = customerRepository.findById(uuid).orElseThrow(() -> new Exception("can not find customer"));
+        return customerMapper.toDto(customerEntity);
     }
 
     public CustomerDto save(CustomerCreateDto customerCreateDto){

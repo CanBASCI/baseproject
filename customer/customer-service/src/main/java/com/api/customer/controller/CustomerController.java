@@ -28,6 +28,11 @@ public class CustomerController implements CustomerService {
     }
 
     @Override
+    public CustomerDto getCustomer(UUID id) throws Exception {
+        return customerOperation.getCustomerById(id);
+    }
+
+    @Override
     public CustomerDto save(CustomerCreateDto customerCreateDto) {
         return customerOperation.save(customerCreateDto);
     }

@@ -13,6 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -26,6 +27,10 @@ public class CustomerOperation {
 
     public List<CustomerDto> getAllCustomers(){
         return customerService.getAllCustomers();
+    }
+
+    public CustomerDto getCustomerById(UUID uuid) throws Exception {
+        return customerService.getCustomer(uuid);
     }
 
     public CustomerDto save(CustomerCreate customerCreate){
