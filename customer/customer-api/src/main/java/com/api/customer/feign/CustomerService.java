@@ -3,6 +3,7 @@ package com.api.customer.feign;
 import com.api.customer.dto.CustomerCreateDto;
 import com.api.customer.dto.CustomerDto;
 import com.api.customer.dto.address.AddressDto;
+import com.api.customer.dto.address.PhoneCodeDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,4 +28,7 @@ public interface CustomerService {
 
     @GetMapping("api/address/getAddress/{id}")
     AddressDto getAddress(@PathVariable(value = "id") UUID id) throws Exception;
+
+    @GetMapping("api/phone/getPhoneCodes")
+    List<PhoneCodeDto> getPhoneCodes();
 }

@@ -2,6 +2,7 @@ package com.api.customer.dto;
 
 import com.api.customer.dto.address.AddressDto;
 import com.api.customer.dto.util.BaseDto;
+import com.api.customer.enums.GenderType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -21,6 +22,7 @@ public class CustomerDto extends BaseDto {
     private String middleName;
     private String lastName;
     private Date birthDate;
+    private GenderType genderType;
     private Boolean isActive;
     private List<AddressDto> addresses;
 }

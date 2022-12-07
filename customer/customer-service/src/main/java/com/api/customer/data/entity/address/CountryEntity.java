@@ -1,5 +1,6 @@
 package com.api.customer.data.entity.address;
 
+import com.api.customer.data.entity.phone.PhoneCodeEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,4 +33,7 @@ public class CountryEntity {
 
     @OneToMany(mappedBy="country", cascade = CascadeType.ALL)
     private Set<CityEntity> cities = new HashSet<>();
+
+    @OneToOne(mappedBy = "country")
+    private PhoneCodeEntity phoneCode;
 }
