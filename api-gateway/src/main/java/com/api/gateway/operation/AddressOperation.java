@@ -1,5 +1,6 @@
 package com.api.gateway.operation;
 
+import com.api.customer.dto.address.AddressCreateDto;
 import com.api.customer.dto.address.AddressDto;
 import com.api.customer.feign.CustomerService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +20,10 @@ public class AddressOperation {
 
     public AddressDto getAddressById(UUID uuid) throws Exception {
         return customerService.getAddress(uuid);
+    }
+
+    public AddressDto save(AddressCreateDto addressCreateDto) throws Exception {
+        return customerService.save(addressCreateDto);
     }
 
 }

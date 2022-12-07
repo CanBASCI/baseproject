@@ -1,10 +1,11 @@
 package com.api.customer.dto.address;
 
-import com.api.customer.dto.CustomerDto;
 import com.api.customer.dto.util.BaseDto;
 import com.api.customer.enums.AddressType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.util.UUID;
@@ -14,14 +15,11 @@ import java.util.UUID;
 @Getter
 @Setter
 @SuperBuilder
-public class AddressDto extends BaseDto {
-    private UUID id;
+public class AddressCreateDto extends BaseDto {
     private String address;
-    private DistrictDto district;
-    @JsonIgnore
-    private CustomerDto customer;
+    private UUID districtId;
+    private UUID customerId;
     private AddressType addressType;
     private String postalCode;
     private String phoneNumber;
-    private Boolean isActive;
 }

@@ -14,9 +14,17 @@ import java.util.List;
 public interface CustomerMapper {
 
     @Mapping(target = "addresses.customer", ignore = true)
+    @Mapping(target = "phoneCodeNumber.phoneCode", source = "phoneCode")
+    @Mapping(target = "phoneCodeNumber.phoneNumber", source = "phoneNumber")
     CustomerDto toDto(CustomerEntity customerEntity);
+
     List<CustomerDto> toDtos(List<CustomerEntity> customerEntityList);
+
+    @Mapping(target = "phoneCode", source = "phoneCodeNumber.phoneCode")
+    @Mapping(target = "phoneNumber", source = "phoneCodeNumber.phoneNumber")
+    @Mapping(target = "isActive", constant  = "true")
     CustomerEntity toEntity(CustomerCreateDto customerCreateDto);
+
     @Mapping(target = "customer", ignore = true)
     @Mapping(target = "district.city.districts", ignore = true)
     @Mapping(target = "district.city.country.cities", ignore = true)

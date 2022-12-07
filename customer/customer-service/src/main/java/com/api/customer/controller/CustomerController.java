@@ -2,6 +2,7 @@ package com.api.customer.controller;
 
 import com.api.customer.dto.CustomerCreateDto;
 import com.api.customer.dto.CustomerDto;
+import com.api.customer.dto.address.AddressCreateDto;
 import com.api.customer.dto.address.AddressDto;
 import com.api.customer.dto.address.PhoneCodeDto;
 import com.api.customer.feign.CustomerService;
@@ -49,5 +50,10 @@ public class CustomerController implements CustomerService {
     @Override
     public List<PhoneCodeDto> getPhoneCodes(){
         return phoneOperation.getPhoneCodes();
+    }
+
+    @Override
+    public AddressDto save(AddressCreateDto addressCreateDto) throws Exception {
+        return addressOperation.save(addressCreateDto);
     }
 }

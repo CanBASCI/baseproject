@@ -1,5 +1,6 @@
 package com.api.gateway.controller;
 
+import com.api.customer.dto.address.AddressCreateDto;
 import com.api.customer.dto.address.AddressDto;
 import com.api.gateway.operation.AddressOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,10 @@ public class AddressController {
     @GetMapping("/getAddress")
     ResponseEntity<AddressDto> getAddress(@RequestParam UUID id) throws Exception {
         return ResponseEntity.ok().body(addressOperation.getAddressById(id));
+    }
+
+    @PostMapping("/save")
+    ResponseEntity<AddressDto> save(@RequestBody AddressCreateDto addressCreateDto) throws Exception {
+        return ResponseEntity.ok().body(addressOperation.save(addressCreateDto));
     }
 }

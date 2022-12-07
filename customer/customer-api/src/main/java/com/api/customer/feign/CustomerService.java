@@ -2,6 +2,7 @@ package com.api.customer.feign;
 
 import com.api.customer.dto.CustomerCreateDto;
 import com.api.customer.dto.CustomerDto;
+import com.api.customer.dto.address.AddressCreateDto;
 import com.api.customer.dto.address.AddressDto;
 import com.api.customer.dto.address.PhoneCodeDto;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -31,4 +32,7 @@ public interface CustomerService {
 
     @GetMapping("api/phone/getPhoneCodes")
     List<PhoneCodeDto> getPhoneCodes();
+
+    @PostMapping("api/address/save")
+    AddressDto save(@RequestBody AddressCreateDto addressCreateDto) throws Exception;
 }

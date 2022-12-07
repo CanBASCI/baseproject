@@ -15,7 +15,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Table(name="CUSTOMERS")
+@Table(name="CUSTOMER")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -38,12 +38,24 @@ public class CustomerEntity extends BaseEntity {
     @Column(name="LAST_NAME", nullable = false)
     private String lastName;
 
+    @Column(name="EMAIL_NUMBER", nullable = false)
+    private String emailNumber;
+
+    @Column(name="PHONE_CODE", length = 10, nullable = false)
+    private String phoneCode;
+
+    @Column(name="PHONE_NUMBER", length = 15, nullable = false)
+    private String phoneNumber;
+
     @Column(name="BIRTH_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date birthDate;
 
     @Column(name="GENDER_TYPE")
     private GenderType genderType;
+
+    @Column(name="IDENTITY_NUMBER", length = 20)
+    private String identityNumber;
 
     @OneToMany(mappedBy="customer", cascade = CascadeType.ALL)
     private Set<AddressEntity> addresses = new HashSet<>();

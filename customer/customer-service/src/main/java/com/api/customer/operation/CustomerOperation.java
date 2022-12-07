@@ -29,7 +29,6 @@ public class CustomerOperation {
 
     public CustomerDto save(CustomerCreateDto customerCreateDto){
         CustomerEntity customerEntity = customerMapper.toEntity(customerCreateDto);
-        customerEntity.setIsActive(true);
         CustomerEntity customer = customerRepository.save(customerEntity);
         return customerMapper.toDto(customer);
     }
