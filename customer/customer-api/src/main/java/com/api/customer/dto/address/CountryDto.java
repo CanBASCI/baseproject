@@ -17,6 +17,7 @@ public class CountryDto {
     private String name;
     private String twoCharCountryCode ;
     private String threeCharCountryCode ;
+    private PhoneCodeDto phoneCode;
     @JsonIgnore
     private List<CityDto> cities;
 }

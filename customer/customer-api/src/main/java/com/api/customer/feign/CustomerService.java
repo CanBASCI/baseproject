@@ -2,9 +2,7 @@ package com.api.customer.feign;
 
 import com.api.customer.dto.CustomerCreateDto;
 import com.api.customer.dto.CustomerDto;
-import com.api.customer.dto.address.AddressCreateDto;
-import com.api.customer.dto.address.AddressDto;
-import com.api.customer.dto.address.PhoneCodeDto;
+import com.api.customer.dto.address.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,4 +33,19 @@ public interface CustomerService {
 
     @PostMapping("api/address/save")
     AddressDto save(@RequestBody AddressCreateDto addressCreateDto) throws Exception;
+
+    @GetMapping("api/CustomerCityDistrict/getAllCountries")
+    List<CountryDto> getAllCountries();
+    @GetMapping("api/CustomerCityDistrict/getCountry/{id}")
+    CountryDto getCountry(@PathVariable(value = "id") UUID id) throws Exception;
+
+    @GetMapping("api/CustomerCityDistrict/getAllCities")
+    List<CityDto> getAllCities();
+    @GetMapping("api/CustomerCityDistrict/getCity/{id}")
+    CityDto getCity(@PathVariable(value = "id") UUID id) throws Exception;
+
+    @GetMapping("api/CustomerCityDistrict/getAllDistricts")
+    List<DistrictDto> getAllDistricts();
+    @GetMapping("api/CustomerCityDistrict/getDistrict/{id}")
+    DistrictDto getDistrict(@PathVariable(value = "id") UUID id) throws Exception;
 }
