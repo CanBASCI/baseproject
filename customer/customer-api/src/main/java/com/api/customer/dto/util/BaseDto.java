@@ -3,6 +3,7 @@ package com.api.customer.dto.util;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -11,7 +12,7 @@ import java.util.Date;
 @Getter
 @Setter
 @SuperBuilder
-public class BaseDto{
+public abstract class BaseDto implements Serializable {
     private Date createdAt;
     private Date updatedAt;
     private String createdBy;

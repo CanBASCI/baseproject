@@ -27,6 +27,7 @@ public class CustomerDto extends BaseDto {
     private Date birthDate;
     private GenderType genderType;
     private String identityNumber;
+    private Boolean isMarried;
     private Boolean isActive;
     private List<AddressDto> addresses;
 }

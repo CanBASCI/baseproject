@@ -1,5 +1,6 @@
 package com.api.gateway.dto.customer;
 
+import com.api.customer.dto.util.BaseDto;
 import com.api.customer.enums.GenderType;
 import lombok.*;
 
@@ -13,7 +14,7 @@ import java.util.Date;
 @Setter
 @Data
 @Builder
-public class CustomerCreate {
+public class CustomerCreate extends BaseDto {
     @NotEmpty
     private String firstName;
     private String middleName;
@@ -31,4 +32,5 @@ public class CustomerCreate {
     private GenderType genderType;
     @NotEmpty
     private String identityNumber;
+    private Boolean isMarried;
 }

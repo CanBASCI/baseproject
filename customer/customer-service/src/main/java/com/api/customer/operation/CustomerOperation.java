@@ -4,7 +4,7 @@ import com.api.customer.data.CustomerRepository;
 import com.api.customer.data.entity.CustomerEntity;
 import com.api.customer.dto.CustomerCreateDto;
 import com.api.customer.dto.CustomerDto;
-import com.api.customer.mapper.CustomerMapper;
+import com.api.customer.data.mapper.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

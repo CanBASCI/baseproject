@@ -1,4 +1,4 @@
-package com.api.customer.mapper;
+package com.api.customer.data.mapper;
 
 import com.api.customer.data.entity.phone.PhoneCodeEntity;
 import com.api.customer.dto.address.PhoneCodeDto;

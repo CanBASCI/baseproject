@@ -1,6 +1,7 @@
 package com.api.customer.dto;
 
 import com.api.customer.dto.phone.PhoneCodeNumberDto;
+import com.api.customer.dto.util.BaseDto;
 import com.api.customer.enums.GenderType;
 import lombok.*;
 
@@ -12,7 +13,7 @@ import java.util.Date;
 @Setter
 @Data
 @Builder
-public class CustomerCreateDto {
+public class CustomerCreateDto extends BaseDto {
     private String firstName;
     private String middleName;
     private String lastName;
@@ -22,4 +23,5 @@ public class CustomerCreateDto {
     private PhoneCodeNumberDto phoneCodeNumber;
     private GenderType genderType;
     private String identityNumber;
+    private Boolean isMarried;
 }

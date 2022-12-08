@@ -8,7 +8,7 @@ import com.api.customer.data.entity.address.DistrictEntity;
 import com.api.customer.data.entity.address.DistrictRepository;
 import com.api.customer.dto.address.AddressCreateDto;
 import com.api.customer.dto.address.AddressDto;
-import com.api.customer.mapper.AddressMapper;
+import com.api.customer.data.mapper.AddressMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

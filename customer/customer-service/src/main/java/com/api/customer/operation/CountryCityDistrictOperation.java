@@ -4,7 +4,7 @@ import com.api.customer.data.entity.address.*;
 import com.api.customer.dto.address.CityDto;
 import com.api.customer.dto.address.CountryDto;
 import com.api.customer.dto.address.DistrictDto;
-import com.api.customer.mapper.CountryCityDistrictMapper;
+import com.api.customer.data.mapper.CountryCityDistrictMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

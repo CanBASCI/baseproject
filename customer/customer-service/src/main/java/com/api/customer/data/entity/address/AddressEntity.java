@@ -25,8 +25,9 @@ public class AddressEntity extends BaseEntity {
 
     @Column(name="ADDRESS", length = 510)
     private String address;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "DISTRICT_ID", referencedColumnName = "id")
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "district_id", referencedColumnName = "id")
     private DistrictEntity district;
 
     @Column(name="ADDRESS_TYPE")

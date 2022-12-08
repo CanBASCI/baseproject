@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -44,7 +46,7 @@ public class DistrictEntity {
     @Column(name="SOUTHWEST_LONGITUDE", precision=11, scale=8)
     private Double southwestLongitude;
 
-    @OneToOne(mappedBy = "district")
-    private AddressEntity address;
+    @OneToMany(mappedBy="district", cascade = CascadeType.ALL)
+    private Set<AddressEntity> addresses = new HashSet<>();
 
 }

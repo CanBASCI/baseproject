@@ -57,6 +57,9 @@ public class CustomerEntity extends BaseEntity {
     @Column(name="IDENTITY_NUMBER", length = 20)
     private String identityNumber;
 
+    @Column(name = "IS_MARRIED")
+    private Boolean isMarried;
+
     @OneToMany(mappedBy="customer", cascade = CascadeType.ALL)
     private Set<AddressEntity> addresses = new HashSet<>();
 

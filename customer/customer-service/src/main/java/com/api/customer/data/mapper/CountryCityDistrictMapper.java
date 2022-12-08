@@ -1,4 +1,4 @@
-package com.api.customer.mapper;
+package com.api.customer.data.mapper;
 
 import com.api.customer.data.entity.address.CityEntity;
 import com.api.customer.data.entity.address.CountryEntity;
