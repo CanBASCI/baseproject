@@ -1,0 +1,5 @@
+FROM openjdk:19-oracle
+RUN mkdir /application
+COPY --from=build_step /target/eureka-server-1.0-SNAPSHOT.jar /application
+WORKDIR /application
+CMD ["java", "-jar", "eureka-server-1.0-SNAPSHOT.jar"]

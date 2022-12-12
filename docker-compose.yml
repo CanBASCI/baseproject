@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  eureka-server:
+    build: ./eureka-server
+    image: baseproject/eureka-server:latest
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+  user:
+    build: ./user
+    image: baseproject/user:latest
+    container_name: user
+    ports:
+      - "8181:8181"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+networks:
+  spring:
+    driver: bridge
