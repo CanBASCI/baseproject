@@ -1,0 +1,4 @@
+FROM openjdk:20
+ADD customer-api/target/*.jar customer-api-1.0-SNAPSHOT.jar
+ADD customer-service/target/*.jar customer-service-1.0-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","customer-service-1.0-SNAPSHOT.jar"]

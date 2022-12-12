@@ -1,0 +1,4 @@
+FROM openjdk:20
+ADD iyzico-api/target/*.jar iyzico-api-1.0-SNAPSHOT.jar
+ADD iyzico-service/target/*.jar iyzico-service-1.0-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","iyzico-service-1.0-SNAPSHOT.jar"]
