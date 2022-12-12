@@ -1,5 +1,26 @@
 version: "3.8"
 services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - spring
   eureka-server:
     build: ./eureka-server
     image: baseproject/eureka-server:latest
@@ -21,5 +42,9 @@ services:
     networks:
       - spring
 networks:
+  postgres:
+    driver: bridge
   spring:
     driver: bridge
+volumes:
+  postgres:
