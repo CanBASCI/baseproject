@@ -18,7 +18,6 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
         </processorPath>
-        <module name="config-server" />
         <module name="user-api" />
         <module name="customer-api" />
         <module name="iyzico-service" />
@@ -29,5 +28,8 @@
         <module name="iyzico-api" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="config-server" target="19" />
+    </bytecodeTargetLevel>
   </component>
 </project>
