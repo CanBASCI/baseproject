@@ -8,6 +8,8 @@ import com.api.user.dto.CreateRoleDto;
 import com.api.user.dto.CreateUserDto;
 import com.api.user.dto.RoleDto;
 import com.api.user.dto.UserDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -23,6 +25,8 @@ public class UserOperation {
     UserRepository userRepository;
     @Autowired
     RoleRepository roleRepository;
+
+    private final static Logger logger = LoggerFactory.getLogger(UserOperation.class);
     public List<UserDto> getUsers() {
         List<UserEntity> userEntities = userRepository.findAll();
         List<UserDto> userDtoList = new ArrayList<>();
@@ -95,6 +99,7 @@ public class UserOperation {
     }
 
     public int getPort(){
+        logger.info("UserOperation -> getPort");
         return port;
     }
 }

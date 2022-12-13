@@ -60,6 +60,22 @@ services:
       - postgres
     networks:
       - spring
+  user_2:
+    build: ./user
+    image: baseproject/user:latest
+    container_name: user_2
+    ports:
+      - "8182:8182"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/cs_user
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+      - SPRING_ZIPKIN_BASEURL=http://host.docker.internal:9411
+      - SERVER_PORT=8182
+    depends_on:
+      - postgres
+    networks:
+      - spring
   customer:
     build: ./customer
     image: baseproject/customer:latest
