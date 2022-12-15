@@ -1,5 +1,6 @@
 package com.api.customer.operation;
 
+import com.api.core.exception.NotFoundException;
 import com.api.customer.data.CustomerRepository;
 import com.api.customer.data.entity.CustomerEntity;
 import com.api.customer.dto.CustomerCreateDto;
@@ -23,7 +24,7 @@ public class CustomerOperation {
     }
 
     public CustomerDto getCustomerById(UUID uuid) throws Exception{
-        CustomerEntity customerEntity = customerRepository.findById(uuid).orElseThrow(() -> new Exception("can not find customer"));
+        CustomerEntity customerEntity = customerRepository.findById(uuid).orElseThrow(() -> new NotFoundException("can not find customer"));
         return customerMapper.toDto(customerEntity);
     }
 

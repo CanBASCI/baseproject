@@ -1,5 +1,7 @@
 package com.api.gateway;
 
+import com.api.gateway.decoder.RetreiveMessageErrorDecoder;
+import feign.codec.ErrorDecoder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,5 +21,10 @@ public class ApiGatewayApplication {
     @Bean
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public ErrorDecoder errorDecoder(){
+        return new RetreiveMessageErrorDecoder();
     }
 }
