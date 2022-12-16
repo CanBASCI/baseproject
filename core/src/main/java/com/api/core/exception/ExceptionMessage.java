@@ -1,8 +1,16 @@
 package com.api.core.exception;
 
-public record ExceptionMessage(String timestamp,
-                               int status,
-                               String error,
-                               String message,
-                               String path){
+import lombok.*;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public class ExceptionMessage {
+    String timestamp;
+    int status;
+    String error;
+    String message;
+    String path;
 }

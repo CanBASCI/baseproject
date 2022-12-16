@@ -6,6 +6,8 @@ spring:
 
 server:
   port: 8281
+  error:
+    include-message: always
 
 eureka:
   client:

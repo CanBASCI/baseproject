@@ -3,6 +3,7 @@ package com.api.gateway.decoder;
 import com.api.core.exception.ExceptionMessage;
 import com.api.core.exception.BadRequestException;
 import com.api.core.exception.NotFoundException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import io.micrometer.core.instrument.util.IOUtils;
@@ -19,23 +20,17 @@ public class RetreiveMessageErrorDecoder implements ErrorDecoder {
     @Override
     public Exception decode(String methodKey, Response response) {
         ExceptionMessage message = null;
-        try(InputStream body = response.body().asInputStream()){
-            message = new ExceptionMessage((String) response.headers().get("date").toArray()[0],
-                    response.status(),
-                    HttpStatus.resolve(response.status()).getReasonPhrase(),
-                    IOUtils.toString(body, StandardCharsets.UTF_8),
-                    response.request().url());
-
-
-        }catch (IOException ioException){
-            return new Exception(ioException.getMessage());
+        try (InputStream bodyIs = response.body().asInputStream()) {
+            ObjectMapper mapper = new ObjectMapper();
+            message = mapper.readValue(bodyIs, ExceptionMessage.class);
+        } catch (IOException e) {
+            return new Exception(e.getMessage());
         }
-
-        switch (response.status()){
+        switch (response.status()) {
             case 400:
-                throw  new BadRequestException(message);
+                return new BadRequestException(message);
             case 404:
-                throw new NotFoundException(message);
+                return new NotFoundException(message);
             default:
                 return errorDecoder.decode(methodKey, response);
         }
